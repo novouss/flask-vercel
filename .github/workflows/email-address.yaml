@@ -4,4 +4,4 @@ jobs:
   test:
     steps:
       - name: raymondbrian.gorospe@straive.com
-      run: echo "Hello, World!"
+        run: echo "Hello, world!"
