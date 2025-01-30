@@ -1,7 +1,9 @@
-name: Echo Hello World
+name: hello-world
 
+on: push
 jobs:
-  test:
+  my-job:
+    runs-on: ubuntu-latest
     steps:
-      - name: raymondbrian.gorospe@straive.com
-        run: echo "Hello, world!"
+      - name: my-step
+        run: echo "Hello World!"
