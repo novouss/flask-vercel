@@ -1,0 +1,7 @@
+name: Echo Hello World
+
+jobs:
+  test:
+    steps:
+      - name: raymondbrian.gorospe@straive.com
+      run: echo "Hello, World!"
