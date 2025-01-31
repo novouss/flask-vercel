@@ -15,7 +15,7 @@ def data():
     data = get_data()
     students = { entry['name']: entry['marks'] for entry in data if entry['name'] in names }
     results = [ value for _, value in students.items() ]
-    return jsonify(results)
+    return jsonify({ "marks": results })
 
 if __name__ == '__main__':
     app.run(debug=True)
