@@ -1,0 +1,21 @@
+name: daily-commit
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs daily at 12:00am midnight
+
+jobs:
+  daily_commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Commit changes
+        run: |
+          echo "Daily commit" >> daily_commit.txt
+          git config --local user.email "raymondbrian.gorospe@straive.com"
+          git config --local user.name "Daily Commit Bot"
+          git add daily_commit.txt
+          git commit -m "Daily commit"
+          git push origin main  # Change 'main' to your default branch if necessary
