@@ -2,11 +2,23 @@ name: daily-commit
 
 on:
   schedule:
-    - cron: '30 11 * * *'  # Runs daily at 12:00am midnight
-
+    # Use https://crontab.guru/ to format this section (UTC based)
+    - cron: "0 4 * * *" # 04:00 am UTC
 jobs:
   daily_commit:
     runs-on: ubuntu-latest
     steps:
-      - name: Scheduled Check
-        run: echo "raymondbrian.gorospe@straive.com"
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Add commit with raymondbrian.gorospe@straive.com
+        run: |
+          # Setting Git Config
+          git config --global user.name "GitHub Actions"
+          git config --gloabl user.email "actions@github.com"
+          # Create a file and modify existing file
+          echo "Daily commit on $(date)" >> daily-commit.txt
+          # Staging, commit, and push
+          git add daily-commit.txt
+          git commit -m "Daily automated commit"
+          git push origin main
