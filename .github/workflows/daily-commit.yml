@@ -4,6 +4,7 @@ on:
   schedule:
     # Use https://crontab.guru/ to format this section (UTC based)
     - cron: "0 4 * * *" # 04:00 am UTC
+  workflow_dispatch:
 jobs:
   daily-commit:
     runs-on: ubuntu-latest
